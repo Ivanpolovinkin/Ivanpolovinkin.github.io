@@ -9,334 +9,178 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#0f1113;
-      --card:#131417;
-      --muted:#9aa3a8;
-      --accent:#d4af37; /* золотой */
-      --glass: rgba(255,255,255,0.03);
-      --radius:14px;
-      --maxw:900px;
-      --gap:22px;
+    :root {
+      --bg: #0d0d12;
+      --card: #18181f;
+      --muted: #b3b3c9;
+      --accent: #ff4da6; /* розовый */
+      --accent2: #ff80bf; /* мягкий розовый для градиентов */
+      --radius: 14px;
+      --maxw: 900px;
+      --gap: 22px;
     }
 
-    /* Базовая типографика */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg, rgba(16,18,20,1) 0%, rgba(11,12,13,1) 100%);
-      color:#e9eef0;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:48px 20px;
+    * {box-sizing: border-box;}
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, #0d0d12 0%, #15151c 100%);
+      color: #f5f5f7;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
 
-    .container{
-      width:100%;
-      max-width:var(--maxw);
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    /* Заголовок страницы */
+    .page-header {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      font-family: "Playfair Display", serif;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: 1px;
+    }
+    .page-header p {
+      margin: 6px 0 0;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    /* Основная сетка */
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: -30px auto 40px;
+      background: var(--card);
       border-radius: var(--radius);
-      padding:28px;
-      box-shadow: 0 8px 30px rgba(2,6,10,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
-      display:grid;
-      grid-template-columns: 1fr 340px;
-      gap:var(--gap);
-      align-items:start;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: var(--gap);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
     }
 
-    /* Левая — основная колонка */
-    .main{
-      padding-right:12px;
+    .main {padding-right: 12px;}
+    .side {position: relative;}
+
+    h2.section-title {
+      font-size: 14px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin: 0 0 12px;
+      letter-spacing: 1px;
     }
 
-    header {
-      display:flex;
-      align-items:flex-start;
-      gap:16px;
-      margin-bottom:12px;
+    .card {
+      background: #1f1f27;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .avatar{
-      width:86px;
-      height:86px;
-      border-radius:12px;
-      background:
-        linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.06)),
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.15));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family: "Playfair Display", serif;
-      font-size:28px;
-      color:var(--accent);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-      border:1px solid rgba(212,175,55,0.08);
+    .summary {font-size: 14px; line-height: 1.5;}
+
+    .skills {display: flex; flex-wrap: wrap; gap: 10px;}
+    .skill {
+      background: rgba(255,77,166,0.15);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--accent2);
+      border: 1px solid rgba(255,77,166,0.25);
     }
 
-    .title {
-      display:flex;
-      flex-direction:column;
-      gap:6px;
+    .project {margin-bottom: 12px;}
+    .project .p-title {font-weight: 600; color: white; margin-bottom: 4px;}
+    .project .p-desc {font-size: 14px; color: var(--muted);}
+
+    .contact-list {display: flex; flex-direction: column; gap: 8px; font-size: 14px;}
+    .contact-item strong {color: var(--accent); min-width: 70px; display: inline-block;}
+
+    .interests {display: flex; flex-direction: column; gap: 8px;}
+    .interest-pill {
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      background: rgba(255,77,166,0.12);
+      border: 1px solid rgba(255,77,166,0.25);
+      color: white;
+      display: inline-block;
     }
 
-    .name {
-      font-family: "Playfair Display", serif;
-      font-size:20px;
-      letter-spacing:0.2px;
-      color:#fff;
-      margin:0;
-    }
-    .meta {
-      font-size:13px;
-      color:var(--muted);
-      margin:0;
-    }
+    footer {margin-top: 10px; font-size: 12px; color: var(--muted); text-align: center;}
 
-    /* Карточки */
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-      border-radius:12px;
-      padding:14px;
-      margin-bottom:14px;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-
-    h2.section-title{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:13px;
-      margin:0 0 10px 0;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-
-    .summary{
-      font-size:14px;
-      color:#dfe8ea;
-      line-height:1.5;
-    }
-
-    .education-item{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      align-items:flex-start;
-      font-size:14px;
-      margin-bottom:10px;
-    }
-    .edu-left{color:#eaf3f5;}
-    .edu-right{color:var(--muted); font-size:13px}
-
-    /* Навыки */
-    .skills{display:flex;flex-wrap:wrap;gap:10px}
-    .skill{
-      background:var(--glass);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:13px;
-      color:#f3f6f7;
-      border:1px solid rgba(255,255,255,0.02);
-      backdrop-filter: blur(4px);
-    }
-
-    /* Проекты */
-    .project{
-      margin-bottom:12px;
-    }
-    .project .p-title{font-weight:600;color:#fff;margin-bottom:6px}
-    .project .p-desc{color:var(--muted);font-size:14px;line-height:1.4}
-
-    /* Правая колонка (контакты, внешний вид) */
-    .side{
-      position:relative;
-    }
-    .contact-list{display:flex;flex-direction:column;gap:8px;font-size:14px}
-    .contact-item{display:flex;gap:10px;align-items:center;color:var(--muted)}
-    .contact-item strong{color:#fff;font-weight:600;font-size:13px;min-width:78px}
-
-    .interests{display:flex;flex-direction:column;gap:8px}
-    .interest-pill{
-      padding:8px 10px;
-      border-radius:10px;
-      font-size:13px;
-      background:linear-gradient(180deg, rgba(212,175,55,0.06), rgba(255,255,255,0.01));
-      border:1px solid rgba(212,175,55,0.06);
-      color:#fff;
-      display:inline-block;
-    }
-
-    /* Акцентная линия и разделитель */
-    .accent-line{
-      height:3px;
-      background: linear-gradient(90deg, rgba(212,175,55,0.0), var(--accent), rgba(212,175,55,0.0));
-      border-radius:6px;
-      margin:18px 0;
-      opacity:0.95;
-    }
-
-    /* Ножка (footer) */
-    footer{margin-top:14px;font-size:12px;color:var(--muted)}
-    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .btn{
-      padding:8px 12px;border-radius:10px;font-weight:600;font-size:13px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:#fff;cursor:pointer;
-    }
-    .btn--gold{
-      background:linear-gradient(180deg, rgba(212,175,55,0.14), rgba(212,175,55,0.06));
-      border:1px solid rgba(212,175,55,0.12);
-      color:#fff;
-      box-shadow: 0 6px 18px rgba(212,175,55,0.06);
-    }
-
-    /* Респонсив */
-    @media (max-width:880px){
-      .container{grid-template-columns:1fr; padding:20px}
-      .side{order:2}
+    @media (max-width: 820px) {
+      .container {grid-template-columns: 1fr;}
     }
   </style>
 </head>
 <body>
-  <div class="container" role="main" aria-label="Резюме Половинкин Иван Алексеевич">
+  <header class="page-header">
+    <h1>Половинкин Иван Алексеевич</h1>
+    <p>Студент МГТУ «СТАНКИН» · инженерия и технологии</p>
+  </header>
+
+  <div class="container">
     <div class="main">
-      <header>
-        <div class="avatar" aria-hidden="true">ИП</div>
-        <div class="title">
-          <h1 class="name">Половинкин Иван Алексеевич</h1>
-          <p class="meta">Студент — МГТУ «СТАНКИН» · направления: Машиностроение / Инженерия</p>
-          <div style="display:flex;gap:8px;margin-top:6px">
-            <span style="font-size:12px;color:var(--muted)">Гламурный минимализм · Современный формат</span>
-          </div>
-        </div>
-      </header>
-
-      <section class="card" aria-labelledby="summary-title">
-        <h2 id="summary-title" class="section-title">Кратко</h2>
-        <p class="summary">
-          Ответственный и любознательный студент МГТУ «СТАНКИН», увлечённый инженерными задачами и созданием аккуратных, хорошо продуманных решений. Имею практический опыт в учебных проектах, быструю обучаемость, умение работать в команде и доводить задачи до результата.
-        </p>
+      <section class="card">
+        <h2 class="section-title">О себе</h2>
+        <p class="summary">Ответственный и увлечённый студент, интересуюсь инженерными технологиями, современным дизайном и разработкой практичных решений. Легко обучаюсь новому, люблю командную работу и стремлюсь к профессиональному росту.</p>
       </section>
 
-      <div class="accent-line" aria-hidden="true"></div>
-
-      <section class="card" aria-labelledby="education-title">
-        <h2 id="education-title" class="section-title">Образование</h2>
-        <div class="education-item">
-          <div class="edu-left">
-            <div style="font-weight:600">МГТУ «СТАНКИН»</div>
-            <div style="font-size:13px;color:var(--muted)">Бакалавриат — Машиностроение</div>
-          </div>
-          <div class="edu-right">2023 — настоящее время</div>
-        </div>
-        <div class="education-item">
-          <div class="edu-left">
-            <div style="font-weight:600">Школьное образование</div>
-            <div style="font-size:13px;color:var(--muted)">Физико-математический профиль</div>
-          </div>
-          <div class="edu-right">до 2023</div>
+      <section class="card">
+        <h2 class="section-title">Навыки</h2>
+        <div class="skills">
+          <span class="skill">CAD-моделирование</span>
+          <span class="skill">Чертежи и 3D-печать</span>
+          <span class="skill">Python (данные)</span>
+          <span class="skill">C++ (базовый)</span>
+          <span class="skill">Презентации</span>
         </div>
       </section>
 
-      <section class="card" aria-labelledby="skills-title">
-        <h2 id="skills-title" class="section-title">Навыки</h2>
-        <div class="skills" role="list">
-          <span class="skill" role="listitem">Конструкторская графика (CAD)</span>
-          <span class="skill" role="listitem">Чертежи и КД</span>
-          <span class="skill" role="listitem">Механика</span>
-          <span class="skill" role="listitem">Python — обработка данных</span>
-          <span class="skill" role="listitem">C++ — базовый уровень</span>
-          <span class="skill" role="listitem">3D-печать — подготовка моделей</span>
-          <span class="skill" role="listitem">Работа в команде</span>
-          <span class="skill" role="listitem">Публичные презентации</span>
+      <section class="card">
+        <h2 class="section-title">Проекты</h2>
+        <div class="project">
+          <div class="p-title">Робот-манипулятор</div>
+          <div class="p-desc">Учебный прототип с расчётом кинематики и 3D-моделированием.</div>
         </div>
-      </section><section class="card" aria-labelledby="projects-title">
-        <h2 id="projects-title" class="section-title">Проекты (учебные)</h2>
-
-        <article class="project">
-          <div class="p-title">Автоматизированная стойка для измерений</div>
-          <div class="p-desc">Разработал конструктивную часть стойки, подготовил чертежи в CAD, участвовал в сборке и тестировании системы точного позиционирования.</div>
-        </article>
-
-        <article class="project">
-          <div class="p-title">Миниатюрный робот-манипулятор</div>
-          <div class="p-desc">Концепция и моделирование 3D, подбор приводов и расчёт кинематики. Результат — прототип для лабораторной демонстрации.</div>
-        </article>
-
-        <article class="project">
-          <div class="p-title">Оптимизация учебного проекта — PCB</div>
-          <div class="p-desc">Участие в разработке простой печатной платы, разводка, тестирование и отладка питания периферии.</div>
-        </article>
-
+        <div class="project">
+          <div class="p-title">Стенд для измерений</div>
+          <div class="p-desc">Разработка конструкции и подготовка документации.</div>
+        </div>
       </section>
-
-      <footer>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <div style="color:var(--muted)">Готов к стажировкам и проектам. Рекомендации по запросу.</div>
-          <div class="actions" aria-hidden="true">
-            <button class="btn" onclick="window.print()">Печать</button>
-            <button class="btn btn--gold" onclick="downloadResume()">Скачать HTML</button>
-          </div>
-        </div>
-      </footer>
     </div>
 
-    <!-- Правая колонка -->
     <aside class="side">
-      <div class="card" aria-labelledby="contacts-title">
-        <h2 id="contacts-title" class="section-title">Контакты</h2>
+      <div class="card">
+        <h2 class="section-title">Контакты</h2>
         <div class="contact-list">
-          <div class="contact-item"><strong>Email</strong><span style="color:#cfe8ea">ivan.p@example.com</span></div>
-          <div class="contact-item"><strong>Телефон</strong><span style="color:#cfe8ea">+7 (900) 000-00-00</span></div>
-          <div class="contact-item"><strong>Город</strong><span style="color:#cfe8ea">Москва</span></div>
-          <div class="contact-item"><strong>LinkedIn</strong><span style="color:#cfe8ea">linkedin.com/in/ivan-p</span></div>
+          <div class="contact-item"><strong>Email:</strong> ivan.p@example.com</div>
+          <div class="contact-item"><strong>Телефон:</strong> +7 (900) 000-00-00</div>
+          <div class="contact-item"><strong>Город:</strong> Москва</div>
         </div>
       </div>
 
-      <div class="card" aria-labelledby="interests-title" style="margin-top:14px">
-        <h2 id="interests-title" class="section-title">Интересы</h2>
-        <div class="interests" role="list">
-          <span class="interest-pill" role="listitem">Дизайн механизмов</span>
-          <span class="interest-pill" role="listitem">Аддитивное производство</span>
-          <span class="interest-pill" role="listitem">Фотография городской архитектуры</span>
-          <span class="interest-pill" role="listitem">Минималистичный промышленный дизайн</span>
-          <span class="interest-pill" role="listitem">Бег и велопрогулки</span>
-          <span class="interest-pill" role="listitem">Техническое творчество (DIY)</span>
+      <div class="card">
+        <h2 class="section-title">Интересы</h2>
+        <div class="interests">
+          <span class="interest-pill">Технический дизайн</span>
+          <span class="interest-pill">Современная архитектура</span>
+          <span class="interest-pill">DIY проекты</span>
+          <span class="interest-pill">Фотография</span>
+          <span class="interest-pill">Фитнес и бег</span>
         </div>
-      </div>
-
-      <div class="card" aria-labelledby="languages-title" style="margin-top:14px">
-        <h2 id="languages-title" class="section-title">Языки</h2>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div><strong>Русский</strong> — родной</div>
-          <div><strong>Английский</strong> — B1 (технический)</div>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:14px;text-align:center">
-        <div style="font-size:12px;color:var(--muted)">Доступен для<br>стажировки / частичной занятости</div>
       </div>
     </aside>
   </div>
 
-  <script>
-    // Скачивание файла (тот же HTML)
-    function downloadResume(){
-      const html = document.documentElement.outerHTML;
-      const blob = new Blob([html], {type: 'text/html;charset=utf-8'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'resume-ivan-polovinkin.html';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    }
-  </script>
+  <footer>
+    © 2025 · Половинкин Иван Алексеевич
+  </footer>
 </body>
 </html>
