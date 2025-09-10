@@ -3,70 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Простая веб-страница</title>
-    
-    <!-- Стили CSS -->
+    <title>Резюме — Половинкин</title>
     <style>
-        /* Общие стили для всего документа */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        
-        /* Стили для заголовка */
-        header {
-            background-color: #4CAF50;
-            color: white;
             padding: 20px;
-            text-align: center;
+            background-color: #f8f9fa;
         }
-        
-        /* Стили для основного контента */
-        .content {
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
             padding: 20px;
-            margin: 20px;
-            background-color: white;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        
-        /* Стили для ссылок */
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-        
-        /* Стили для футера */
-        footer {
-            background-color: #333;
-            color: white;
+        .header {
             text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            color: #4CAF50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            background-color: #4CAF50;
+            color: white;
             padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            margin: 0;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Заголовок страницы -->
-    <header>
-        <h1>Добро пожаловать на мою страницу</h1>
-    </header>
-    
-    <!-- Основной контент -->
-    <div class="content">
-        <h2>О нас</h2>
-        <p>Это пример простой веб-страницы, созданной с использованием HTML и CSS.</p>
-        
-        <h3>Контакты</h3>
-        <p>Для связи с нами, пожалуйста, перейдите на <a href="#">нашу страницу контактов</a>.</p>
+    <div class="container">
+        <div class="header">
+            <h1>Половинкин Андрей Дмитриевич</h1>
+            <p>Студент, группа АДБ-23-08</p>
+        </div>
+
+        <div class="section">
+            <h2>Контактная информация</h2>
+            <ul>
+                <li>Телефон: +7 (999) 123-45-67</li>
+                <li>Email: polovinkin@example.com</li>
+                <li>Город: Москва</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Образование</h2>
+            <ul>
+                <li>
+                    <strong>2023 - настоящее время</strong><br>
+                    Студент группы АДБ-23-08<br>
+                    Московский технологический университет
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Навыки</h2>
+            <ul>
+                <li>HTML/CSS</li>
+                <li>Базовые знания JavaScript</li>
+                <li>Работа с Git</li>
+                <li>Английский язык (B1)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Опыт работы</h2>
+            <ul>
+                <li>
+                    <strong>Стажер-разработчик</strong><br>
+                    Технопарк, Москва<br>
+                    Июнь 2024 - Август 2024
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Интересы</h2>
+            <ul>
+                <li>Веб-разработка</li>
+                <li>Киберспорт</li>
+                <li>Фотография</li>
+            </ul>
+        </div>
     </div>
-    
-    <!-- Футер -->
-    <footer>
-        <p>&copy; 2025 Мой сайт</p>
-    </footer>
 </body>
 </html>
